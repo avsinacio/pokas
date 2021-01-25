@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { pokemonStatNames } from '../../../services/utils'
 import RetroText from '../../atoms/RetroText'
 import PokeLoader from '../../atoms/PokeLoader'
 
@@ -10,9 +11,9 @@ const StatsCard = ({ stats }) => {
   return (
     <Card>
       {stats?.map?.((stat, i) => (
-        <RetroText
-          key={`stat-${i}`}
-        >{`${stat.stat.name} - ${stat.base_stat}`}</RetroText>
+        <RetroText key={`stat-${i}`}>{`${pokemonStatNames[stat.stat.name]} - ${
+          stat.base_stat
+        }`}</RetroText>
       ))}
     </Card>
   )

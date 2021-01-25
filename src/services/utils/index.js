@@ -27,7 +27,7 @@ const pokemonStatNames = {
   attack: 'ATTACK',
   defense: 'DEFENSE',
   'special-attack': 'SP.ATK',
-  'sepecial-defense': 'SP.DEF',
+  'special-defense': 'SP.DEF',
   speed: 'SPEED',
 }
 

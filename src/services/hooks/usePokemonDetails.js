@@ -22,9 +22,6 @@ const usePokemonDetails = () => {
         base_experience,
       } = response?.data
 
-      // console.log(JSON.stringify(response?.datar, null, 2))
-      // console.log(Object.keys(response?.data))
-
       setState((prevState) => ({
         ...prevState,
         data: {

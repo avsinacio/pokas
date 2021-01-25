@@ -12,6 +12,7 @@ export const Wrapper = styled.View`
   justify-content: space-around;
   background-color: ${({ color }) => color};
   width: 100%;
+  border: 2px solid #212121;
 `
 
 export const HalfWrapper = styled.View`
@@ -21,6 +22,7 @@ export const HalfWrapper = styled.View`
   align-items: center;
   background-color: ${({ color }) => color};
   width: 50%;
+  border: 2px solid #212121;
 `
 
 export const TypeName = styled.Text`

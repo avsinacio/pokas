@@ -2,16 +2,30 @@ import React from 'react'
 
 import { usePokemonDetails } from '../../services/hooks'
 import { getOriginalArtWork } from '../../services/utils'
-import { TypeBar, StatsCard, PokedexHeader } from '../../components'
+import {
+  TypeBar,
+  StatsCard,
+  PokedexHeader,
+  LittleColoredLights,
+  SoundOutputSymbol,
+  BodyData,
+} from '../../components'
 
-import { SafeArea, Title, Header, Image, ScrollView, Trapezoid } from './styles'
+import {
+  SafeArea,
+  Image,
+  ScrollView,
+  ImageBackground,
+  ImageBackgroundDetails,
+  ImageBackgroundDetailsBottom,
+  Title,
+  TitleWrapper,
+} from './styles'
 
 const PokemonDetails = ({ route }) => {
   const { id: pokemonId, name: pokemonName } = route?.params
 
   const { get, data } = usePokemonDetails()
-
-  console.log(data.abilities)
 
   React.useEffect(() => {
     const load = async () => {
@@ -23,12 +37,22 @@ const PokemonDetails = ({ route }) => {
   return (
     <SafeArea edges={['top', 'left', 'right']}>
       <PokedexHeader />
-
-      <Title>{`#${pokemonId} ${pokemonName}`}</Title>
-      <Image source={{ uri: getOriginalArtWork(pokemonId) }} />
-      <TypeBar types={data.types} />
+      <ImageBackgroundDetails>
+        <ImageBackground>
+          <Image source={{ uri: getOriginalArtWork(pokemonId) }} />
+        </ImageBackground>
+        <ImageBackgroundDetailsBottom>
+          <LittleColoredLights color="red" />
+          <SoundOutputSymbol />
+        </ImageBackgroundDetailsBottom>
+      </ImageBackgroundDetails>
       <ScrollView>
+        <TypeBar types={data.types} />
+        <TitleWrapper>
+          <Title>{`#${pokemonId} ${pokemonName}`}</Title>
+        </TitleWrapper>
         <StatsCard stats={data.stats} />
+        <BodyData height={data.height} weight={data.weight} />
       </ScrollView>
     </SafeArea>
   )

@@ -8,19 +8,45 @@ export const SafeArea = styled(SafeAreaView)`
   background-color: #dc092d;
 `
 
-export const Header = styled.View`
+export const ImageBackgroundDetailsBottom = styled.View`
+  flex-direction: row;
   width: 100%;
-  height: 150px;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5px;
+`
+
+export const ImageBackgroundDetails = styled.View`
+  margin-vertical: 25px;
+  background-color: #ffffff;
   justify-content: center;
   align-items: center;
-  border-bottom-width: 1px;
-  border-bottom-color: #212121;
+  width: 300px;
+  height: 300px;
+  border: 2px solid #212121;
+  border-bottom-left-radius: 20px;
+`
+
+export const ImageBackground = styled.View`
+  background-color: #99cb9a;
+  width: 250px;
+  height: 250px;
+  border: 1px solid #212121;
+  justify-content: flex-end;
+  align-items: center;
 `
 
 export const Image = styled.Image`
-  width: 100px;
-  height: 100px;
+  width: 180px;
+  height: 180px;
   resize-mode: contain;
+`
+
+export const TitleWrapper = styled.View`
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-vertical: 20px;
 `
 
 export const Title = styled.Text`
@@ -31,6 +57,7 @@ export const Title = styled.Text`
 
 export const ScrollView = styled.ScrollView.attrs({
   flexGrow: 1,
+  paddingBottom: 200,
 })`
   width: 100%;
 `

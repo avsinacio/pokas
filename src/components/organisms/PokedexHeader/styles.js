@@ -15,3 +15,7 @@ export const Wrapper = styled.View`
 export const RightPadding = styled.View`
   padding-right: 10px;
 `
+
+export const Touchable = styled.TouchableHighlight.attrs({
+  underlayColor: 'transparent',
+})``
