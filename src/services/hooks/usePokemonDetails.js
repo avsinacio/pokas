@@ -13,6 +13,7 @@ const usePokemonDetails = () => {
       setState((prevState) => ({ ...prevState, loading: true }))
       const response = await client.get(`/${id}`)
       const {
+        abilities,
         types,
         stats,
         height,
@@ -26,7 +27,15 @@ const usePokemonDetails = () => {
 
       setState((prevState) => ({
         ...prevState,
-        data: { types, stats, height, weight, sprites, base_experience },
+        data: {
+          abilities,
+          types,
+          stats,
+          height,
+          weight,
+          sprites,
+          base_experience,
+        },
         loading: false,
         error: null,
       }))

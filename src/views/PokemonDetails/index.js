@@ -2,14 +2,16 @@ import React from 'react'
 
 import { usePokemonDetails } from '../../services/hooks'
 import { getOriginalArtWork } from '../../services/utils'
-import { TypeBar, StatsCard, RetroText, PokeLoader } from '../../components'
+import { TypeBar, StatsCard, PokedexHeader } from '../../components'
 
-import { SafeArea, Title, Header, Image, ScrollView } from './styles'
+import { SafeArea, Title, Header, Image, ScrollView, Trapezoid } from './styles'
 
 const PokemonDetails = ({ route }) => {
   const { id: pokemonId, name: pokemonName } = route?.params
 
   const { get, data } = usePokemonDetails()
+
+  console.log(data.abilities)
 
   React.useEffect(() => {
     const load = async () => {
@@ -20,10 +22,10 @@ const PokemonDetails = ({ route }) => {
 
   return (
     <SafeArea edges={['top', 'left', 'right']}>
-      <Header>
-        <Title>{`#${pokemonId} ${pokemonName}`}</Title>
-        <Image source={{ uri: getOriginalArtWork(pokemonId) }} />
-      </Header>
+      <PokedexHeader />
+
+      <Title>{`#${pokemonId} ${pokemonName}`}</Title>
+      <Image source={{ uri: getOriginalArtWork(pokemonId) }} />
       <TypeBar types={data.types} />
       <ScrollView>
         <StatsCard stats={data.stats} />

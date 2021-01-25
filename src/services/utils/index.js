@@ -22,6 +22,15 @@ const pokemonTypeColors = {
   fairy: '#ee99ac',
 }
 
+const pokemonStatNames = {
+  hp: 'HP',
+  attack: 'ATTACK',
+  defense: 'DEFENSE',
+  'special-attack': 'SP.ATK',
+  'sepecial-defense': 'SP.DEF',
+  speed: 'SPEED',
+}
+
 const hectogramsToKilograms = (value) => value / 10
 
 const decimetersToMeters = (value) => value / 10
@@ -29,6 +38,7 @@ const decimetersToMeters = (value) => value / 10
 export {
   getOriginalArtWork,
   pokemonTypeColors,
+  pokemonStatNames,
   hectogramsToKilograms,
   decimetersToMeters,
 }

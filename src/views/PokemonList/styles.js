@@ -14,8 +14,7 @@ export const FlatList = styled.FlatList.attrs({
 `
 
 export const ListFooterComponent = styled.View`
-  height: 100px;
-  width: 100%;
+  flex: 1;
   justify-content: center;
   align-items: center;
 `
