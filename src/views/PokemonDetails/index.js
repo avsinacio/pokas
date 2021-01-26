@@ -35,7 +35,7 @@ const PokemonDetails = ({ route }) => {
   }, [pokemonId])
 
   return (
-    <SafeArea edges={['top', 'left', 'right']}>
+    <SafeArea edges={['top']}>
       <PokedexHeader />
       <ImageBackgroundDetails>
         <ImageBackground>

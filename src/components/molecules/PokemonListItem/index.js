@@ -24,4 +24,8 @@ const PokemonListItem = ({ item, index }) => {
   )
 }
 
-export default PokemonListItem
+const areEqual = (prev, next) => {
+  return prev.index === next.index && prev.item === next.item
+}
+
+export default React.memo(PokemonListItem, areEqual)

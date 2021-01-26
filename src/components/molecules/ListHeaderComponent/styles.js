@@ -3,7 +3,7 @@ import styled from 'styled-components/native'
 export const Header = styled.View`
   width: 100%;
   height: 150px;
-  border-bottom-width: 1px;
+  border-bottom-width: 3px;
   border-bottom-color: #212121;
   justify-content: center;
   align-items: center;

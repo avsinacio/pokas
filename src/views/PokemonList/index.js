@@ -5,16 +5,18 @@ import {
   ListHeaderComponent,
   PokeLoader,
 } from '../../components'
-import { usePokemonList } from '../../services/hooks'
+
+import usePokemonListStore from '../../services/store/PokemonList'
 
 import { SafeArea, FlatList, ListFooterComponent } from './styles'
 
 const PokemonList = () => {
-  const { get, data, loading } = usePokemonList()
+  const { pokemon, loading, increaseOffset, getPokemon } = usePokemonListStore()
 
   React.useEffect(() => {
     const load = async () => {
-      await get()
+      await getPokemon()
+      increaseOffset()
     }
     load()
   }, [])
@@ -23,19 +25,27 @@ const PokemonList = () => {
     return <PokemonListItem item={item} index={index} />
   }
 
-  const onEndReached = () => {
-    get()
+  const onEndReached = async () => {
+    await getPokemon()
+    increaseOffset()
   }
 
-  const renderFooterComponent = () => (
-    <ListFooterComponent>{loading && <PokeLoader />}</ListFooterComponent>
-  )
+  const renderFooterComponent = () => {
+    if (loading) {
+      return (
+        <ListFooterComponent>
+          <PokeLoader />
+        </ListFooterComponent>
+      )
+    }
+    return <ListFooterComponent />
+  }
 
   return (
     <SafeArea edges={['top', 'left', 'right']}>
       <FlatList
         keyExtractor={(_, i) => `poke_${i}`}
-        data={data}
+        data={pokemon}
         renderItem={renderItem}
         ListHeaderComponent={ListHeaderComponent}
         ListFooterComponent={renderFooterComponent}
