@@ -1,4 +1,5 @@
 import styled from 'styled-components/native'
+import FastImage from 'react-native-fast-image'
 
 export const Header = styled.View`
   width: 100%;
@@ -16,10 +17,11 @@ export const Title = styled.Text`
   font-size: 36px;
   text-shadow-color: rgba(0, 0, 0, 0.75);
   text-shadow-radius: 10px;
+  text-shadow: 3px 3px;
 `
 
-export const Image = styled.Image`
+export const Image = styled(FastImage)`
   height: 100px;
   width: 100px;
-  resize-mode: contain;
+  resize-mode: ${FastImage.resizeMode.contain};
 `

@@ -1,17 +1,19 @@
 import styled from 'styled-components/native'
+import FastImage from 'react-native-fast-image'
 
 export const Wrapper = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
   border: 3px solid black;
+  border-radius: 3px;
   background-color: palevioletred;
 `
 
-export const Image = styled.Image`
+export const Image = styled(FastImage)`
   width: 150px;
   height: 150px;
-  resize-mode: contain;
+  resize-mode: ${FastImage.resizeMode.contain};
 `
 
 export const Touchable = styled.TouchableHighlight.attrs({
@@ -28,6 +30,9 @@ export const PokemonName = styled.Text`
   color: #ffffff;
   flex-direction: row;
   text-align: left;
+  text-shadow-color: rgba(0, 0, 0, 0.75);
+  text-shadow-radius: 10px;
+  text-shadow: 2px 2px;
 `
 
 export const PokeNumber = styled(PokemonName)`

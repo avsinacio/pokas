@@ -1,18 +1,25 @@
 import create from 'zustand'
-import { client } from '../../services/api'
+import { client } from '../api'
 
 const usePokemonListStore = create((set, get) => ({
   pokemon: [],
   offset: 0,
   loading: false,
   error: null,
+  reset: () =>
+    set({
+      pokemon: [],
+      offset: 0,
+      loading: false,
+      error: null,
+    }),
   increaseOffset: () =>
     set((state) => ({
       offset: state.offset + 15,
     })),
-  setLoading: (loading) => set({ loading }),
   getPokemon: async () => {
     try {
+      set({ loading: true })
       const { data } = await client.get('', {
         params: {
           offset: get().offset,

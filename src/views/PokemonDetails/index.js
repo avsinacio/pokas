@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { usePokemonDetails } from '../../services/hooks'
+import usePokemonStore from '../../services/store/PokemonStore'
 import { getOriginalArtWork } from '../../services/utils'
 import {
   TypeBar,
@@ -24,12 +24,11 @@ import {
 
 const PokemonDetails = ({ route }) => {
   const { id: pokemonId, name: pokemonName } = route?.params
-
-  const { get, data } = usePokemonDetails()
+  const { getPokemonById, pokemon } = usePokemonStore()
 
   React.useEffect(() => {
     const load = async () => {
-      get(pokemonId)
+      getPokemonById(pokemonId)
     }
     load()
   }, [pokemonId])
@@ -47,12 +46,12 @@ const PokemonDetails = ({ route }) => {
         </ImageBackgroundDetailsBottom>
       </ImageBackgroundDetails>
       <ScrollView>
-        <TypeBar types={data.types} />
+        <TypeBar types={pokemon.types} />
         <TitleWrapper>
           <Title>{`#${pokemonId} ${pokemonName}`}</Title>
         </TitleWrapper>
-        <StatsCard stats={data.stats} />
-        <BodyData height={data.height} weight={data.weight} />
+        <StatsCard stats={pokemon.stats} />
+        <BodyData height={pokemon.height} weight={pokemon.weight} />
       </ScrollView>
     </SafeArea>
   )

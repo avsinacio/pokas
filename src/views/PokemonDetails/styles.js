@@ -1,5 +1,6 @@
 import styled from 'styled-components/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import FastImage from 'react-native-fast-image'
 
 export const SafeArea = styled(SafeAreaView)`
   flex: 1;
@@ -36,10 +37,10 @@ export const ImageBackground = styled.View`
   align-items: center;
 `
 
-export const Image = styled.Image`
-  width: 180px;
-  height: 180px;
-  resize-mode: contain;
+export const Image = styled(FastImage)`
+  width: 200px;
+  height: 200px;
+  resize-mode: ${FastImage.resizeMode.contain};
 `
 
 export const TitleWrapper = styled.View`

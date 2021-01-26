@@ -1,12 +1,11 @@
 import React from 'react'
 
+import usePokemonListStore from '../../services/store/PokemonListStore'
 import {
   PokemonListItem,
   ListHeaderComponent,
   PokeLoader,
 } from '../../components'
-
-import usePokemonListStore from '../../services/store/PokemonList'
 
 import { SafeArea, FlatList, ListFooterComponent } from './styles'
 
