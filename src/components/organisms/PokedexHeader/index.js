@@ -13,12 +13,12 @@ const PokedexHeader = () => (
     <OneThird>
       <BigBlueLight />
     </OneThird>
-    <OneThird />
     <OneThird>
       {colors.map((color, i) => (
         <LittleColoredLights key={`light-${i}`} color={color} />
       ))}
     </OneThird>
+    <OneThird />
   </Wrapper>
 )
 
