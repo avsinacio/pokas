@@ -6,9 +6,9 @@ import {
   TypeBar,
   StatsCard,
   PokedexHeader,
-  LittleColoredLights,
-  SoundOutputSymbol,
   BodyData,
+  PokedexScreenHolder,
+  PokedexScreen,
 } from '../../components'
 
 import {
@@ -31,20 +31,12 @@ const PokemonDetails = ({ route }) => {
       getPokemonById(pokemonId)
     }
     load()
-  }, [pokemonId])
+  }, [pokemonId, getPokemonById])
 
   return (
     <SafeArea edges={['top']}>
       <PokedexHeader />
-      <ImageBackgroundDetails>
-        <ImageBackground>
-          <Image source={{ uri: getOriginalArtWork(pokemonId) }} />
-        </ImageBackground>
-        <ImageBackgroundDetailsBottom>
-          <LittleColoredLights color="red" />
-          <SoundOutputSymbol />
-        </ImageBackgroundDetailsBottom>
-      </ImageBackgroundDetails>
+
       <ScrollView>
         <TypeBar types={pokemon.types} />
         <TitleWrapper>

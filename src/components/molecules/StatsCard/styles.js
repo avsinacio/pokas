@@ -8,3 +8,7 @@ export const Card = styled.View`
   border: 3px solid #212121;
   border-bottom-left-radius: 15px;
 `
+
+export const Spacing = styled.View`
+  margin-bottom: 2px;
+`

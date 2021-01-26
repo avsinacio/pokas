@@ -18,15 +18,10 @@ const PokemonList = () => {
       increaseOffset()
     }
     load()
-  }, [])
+  }, [getPokemon, increaseOffset])
 
   const renderItem = ({ item, index }) => {
     return <PokemonListItem item={item} index={index} />
-  }
-
-  const onEndReached = async () => {
-    await getPokemon()
-    increaseOffset()
   }
 
   const renderFooterComponent = () => {
@@ -40,8 +35,13 @@ const PokemonList = () => {
     return <ListFooterComponent />
   }
 
+  const onEndReached = async () => {
+    await getPokemon()
+    increaseOffset()
+  }
+
   return (
-    <SafeArea edges={['top', 'left', 'right']}>
+    <SafeArea edges={['top']}>
       <FlatList
         keyExtractor={(_, i) => `poke_${i}`}
         data={pokemon}
