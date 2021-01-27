@@ -54,3 +54,9 @@ export const ReturnButton = styled.TouchableHighlight.attrs({
   border-bottom-width: 3px;
   border-bottom-color: #212121;
 `
+
+export const LoadingWrapper = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-content: center;
+`

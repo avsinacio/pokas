@@ -13,7 +13,6 @@ export const Wrapper = styled.View`
 export const Image = styled(FastImage)`
   width: 150px;
   height: 150px;
-  resize-mode: ${FastImage.resizeMode.contain};
 `
 
 export const Touchable = styled.TouchableHighlight.attrs({

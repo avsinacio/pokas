@@ -23,5 +23,4 @@ export const Title = styled.Text`
 export const Image = styled(FastImage)`
   height: 100px;
   width: 100px;
-  resize-mode: ${FastImage.resizeMode.contain};
 `

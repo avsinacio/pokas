@@ -1,4 +1,5 @@
 import React from 'react'
+import FastImage from 'react-native-fast-image'
 
 import { Header, Title, Image } from './styles'
 
@@ -8,7 +9,10 @@ const ListHeaderComponent = () => {
   return (
     <Header>
       <Title>P</Title>
-      <Image source={{ uri: getOriginalArtWork(101) }} />
+      <Image
+        source={{ uri: getOriginalArtWork(101) }}
+        resizeMode={FastImage.resizeMode.contain}
+      />
       <Title>OKAS</Title>
     </Header>
   )

@@ -10,5 +10,7 @@ export const Card = styled.View`
 `
 
 export const Spacing = styled.View`
-  margin-bottom: 2px;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 3px;
 `

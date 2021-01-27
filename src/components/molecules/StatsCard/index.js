@@ -12,9 +12,8 @@ const StatsCard = ({ stats }) => {
     <Card>
       {stats?.map?.((stat, i) => (
         <Spacing key={`stat-${i}`}>
-          <RetroText>{`${pokemonStatNames[stat.stat.name]} - ${
-            stat.base_stat
-          }`}</RetroText>
+          <RetroText>{`${pokemonStatNames[stat.stat.name]}`}</RetroText>
+          <RetroText>{`${stat.base_stat}`}</RetroText>
         </Spacing>
       ))}
     </Card>

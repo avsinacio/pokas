@@ -1,4 +1,5 @@
 import React from 'react'
+import FastImage from 'react-native-fast-image'
 import { useNavigation } from '@react-navigation/native'
 
 import { getOriginalArtWork } from '../../../services/utils'
@@ -17,7 +18,10 @@ const PokemonListItem = ({ item, index }) => {
     >
       <Wrapper>
         <PokemonName>{name || ''}</PokemonName>
-        <Image source={{ uri: getOriginalArtWork(index + 1) }} />
+        <Image
+          source={{ uri: getOriginalArtWork(index + 1) }}
+          resizeMode={FastImage.resizeMode.contain}
+        />
         <PokeNumber>{`#${index + 1}`}</PokeNumber>
       </Wrapper>
     </Touchable>

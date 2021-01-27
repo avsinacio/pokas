@@ -11,7 +11,6 @@ export const Display = styled.View`
 `
 
 export const Pokemon = styled(FastImage)`
-  width: 95%;
-  height: 95%;
-  resize-mode: ${FastImage.resizeMode.contain};
+  width: 100%;
+  height: 100%;
 `
