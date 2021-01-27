@@ -1,28 +1,17 @@
 import React from 'react'
 
 import usePokemonStore from '../../services/store/PokemonStore'
-import { getOriginalArtWork } from '../../services/utils'
-import {
-  TypeBar,
-  StatsCard,
-  PokedexHeader,
-  BodyData,
-  PokedexScreenHolder,
-  PokedexScreen,
-} from '../../components'
+import { TypeBar, StatsCard, PokedexHeader, BodyData } from '../../components'
 
 import {
   SafeArea,
-  Image,
   ScrollView,
-  ImageBackground,
-  ImageBackgroundDetails,
-  ImageBackgroundDetailsBottom,
   Title,
   TitleWrapper,
+  ReturnButton,
 } from './styles'
 
-const PokemonDetails = ({ route }) => {
+const PokemonDetails = ({ route, navigation }) => {
   const { id: pokemonId, name: pokemonName } = route?.params
   const { getPokemonById, pokemon } = usePokemonStore()
 
@@ -36,7 +25,9 @@ const PokemonDetails = ({ route }) => {
   return (
     <SafeArea edges={['top']}>
       <PokedexHeader />
-
+      <ReturnButton onPress={() => navigation.goBack()}>
+        <Title>{'Return'}</Title>
+      </ReturnButton>
       <ScrollView>
         <TypeBar types={pokemon.types} />
         <TitleWrapper>

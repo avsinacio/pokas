@@ -29,4 +29,7 @@ export const TypeName = styled.Text`
   font-family: 'PressStart2P-Regular';
   text-transform: uppercase;
   color: #ffffff;
+  text-shadow-color: rgba(0, 0, 0, 0.75);
+  text-shadow-radius: 10px;
+  text-shadow: 2px 2px;
 `

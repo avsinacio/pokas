@@ -1,6 +1,5 @@
 import styled from 'styled-components/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import FastImage from 'react-native-fast-image'
 
 export const SafeArea = styled(SafeAreaView)`
   flex: 1;
@@ -17,32 +16,6 @@ export const ImageBackgroundDetailsBottom = styled.View`
   margin-top: 5px;
 `
 
-export const ImageBackgroundDetails = styled.View`
-  margin-vertical: 25px;
-  background-color: #ffffff;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-  height: 300px;
-  border: 2px solid #212121;
-  border-bottom-left-radius: 20px;
-`
-
-export const ImageBackground = styled.View`
-  background-color: #99cb9a;
-  width: 250px;
-  height: 250px;
-  border: 1px solid #212121;
-  justify-content: flex-end;
-  align-items: center;
-`
-
-export const Image = styled(FastImage)`
-  width: 200px;
-  height: 200px;
-  resize-mode: ${FastImage.resizeMode.contain};
-`
-
 export const TitleWrapper = styled.View`
   width: 100%;
   justify-content: center;
@@ -54,11 +27,26 @@ export const Title = styled.Text`
   color: #f5f5f5;
   font-family: 'PressStart2P-Regular';
   text-transform: capitalize;
+  text-shadow-color: rgba(0, 0, 0, 0.75);
+  text-shadow-radius: 10px;
+  text-shadow: 3px 3px;
 `
 
 export const ScrollView = styled.ScrollView.attrs({
   flexGrow: 1,
   paddingBottom: 200,
+  backgroundColor: 'dodgerblue',
 })`
   width: 100%;
+`
+
+export const ReturnButton = styled.TouchableHighlight.attrs({
+  underlayColor: 'transparent',
+})`
+  padding: 15px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border-bottom-width: 3px;
+  border-bottom-color: #212121;
 `
