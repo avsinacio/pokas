@@ -5,7 +5,7 @@ export const Wrapper = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  border: 3px solid black;
+  border: 3px solid #212121;
   border-radius: 3px;
   background-color: palevioletred;
 `

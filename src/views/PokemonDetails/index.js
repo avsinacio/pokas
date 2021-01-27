@@ -1,7 +1,14 @@
 import React from 'react'
 
 import usePokemonStore from '../../services/store/PokemonStore'
-import { TypeBar, StatsCard, PokedexHeader, BodyData } from '../../components'
+import {
+  TypeBar,
+  StatsCard,
+  PokedexHeader,
+  BodyData,
+  PokedexScreen,
+  PokedexDisplay,
+} from '../../components'
 
 import {
   SafeArea,
@@ -29,6 +36,7 @@ const PokemonDetails = ({ route, navigation }) => {
         <Title>{'Return'}</Title>
       </ReturnButton>
       <ScrollView>
+        <PokedexScreen pokemonId={pokemonId} />
         <TypeBar types={pokemon.types} />
         <TitleWrapper>
           <Title>{`#${pokemonId} ${pokemonName}`}</Title>

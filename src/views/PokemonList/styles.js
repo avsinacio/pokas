@@ -7,8 +7,10 @@ export const SafeArea = styled(SafeAreaView)`
 `
 
 export const FlatList = styled.FlatList.attrs({
-  flexGrow: 1,
-  paddingBottom: 150,
+  contentContainerStyler: {
+    flexGrow: 1,
+    paddingBottom: 150,
+  },
 })`
   width: 100%;
 `

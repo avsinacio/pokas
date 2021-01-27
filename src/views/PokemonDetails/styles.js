@@ -33,9 +33,13 @@ export const Title = styled.Text`
 `
 
 export const ScrollView = styled.ScrollView.attrs({
-  flexGrow: 1,
-  paddingBottom: 200,
-  backgroundColor: 'dodgerblue',
+  contentContainerStyle: {
+    flexGrow: 1,
+    paddingTop: 15,
+    paddingBottom: 250,
+    alignItems: 'center',
+    paddingHorizontal: 15,
+  },
 })`
   width: 100%;
 `

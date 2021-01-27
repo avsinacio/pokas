@@ -11,9 +11,9 @@ const PokemonListItem = ({ item, index }) => {
 
   return (
     <Touchable
-      onPress={() =>
+      onPress={() => {
         navigation.navigate('PokemonDetails', { id: index + 1, name })
-      }
+      }}
     >
       <Wrapper>
         <PokemonName>{name || ''}</PokemonName>
