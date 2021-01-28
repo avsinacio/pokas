@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { images } from '../../assets/img'
-import { ListHeaderComponent, RetroText } from '../../components'
+import { WelcomeHeader, RetroText } from '../../components'
 
 import {
   SafeArea,
@@ -16,9 +16,9 @@ const professorOakLines =
 
 const Welcome = ({ navigation }) => (
   <SafeArea edges={['top', 'bottom']}>
-    <ListHeaderComponent />
+    <WelcomeHeader />
     <Wrapper>
-      <SpeechBalloon onPress={() => navigation.navigate('PokemonList')}>
+      <SpeechBalloon onPress={() => navigation.navigate('Introduction')}>
         <RetroText lineHeight={20}>{professorOakLines}</RetroText>
       </SpeechBalloon>
       <ProfessorOakPositioner>

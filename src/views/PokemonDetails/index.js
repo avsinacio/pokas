@@ -24,10 +24,6 @@ const PokemonDetails = ({ route, navigation }) => {
   const { getPokemonById, pokemon, loading } = usePokemonStore()
 
   React.useEffect(() => {
-    console.log(JSON.stringify(pokemon?.sprites, null, 2))
-  }, [pokemon])
-
-  React.useEffect(() => {
     const load = async () => {
       getPokemonById(pokemonId)
     }
@@ -40,24 +36,18 @@ const PokemonDetails = ({ route, navigation }) => {
       <ReturnButton onPress={() => navigation.goBack()}>
         <Title>{'Return'}</Title>
       </ReturnButton>
-      {loading ? (
-        <LoadingWrapper>
-          <PokeLoader />
-        </LoadingWrapper>
-      ) : (
-        <ScrollView
-          showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}
-        >
-          <PokedexScreen pokemonId={pokemonId} />
-          <TypeBar types={pokemon.types} />
-          <TitleWrapper>
-            <Title>{`#${pokemonId} ${pokemonName}`}</Title>
-          </TitleWrapper>
-          <StatsCard stats={pokemon.stats} />
-          <BodyData height={pokemon.height} weight={pokemon.weight} />
-        </ScrollView>
-      )}
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      >
+        <PokedexScreen pokemonId={pokemonId} />
+        <TypeBar types={pokemon.types} />
+        <TitleWrapper>
+          <Title>{`#${pokemonId} ${pokemonName}`}</Title>
+        </TitleWrapper>
+        <StatsCard stats={pokemon.stats} />
+        <BodyData height={pokemon.height} weight={pokemon.weight} />
+      </ScrollView>
     </SafeArea>
   )
 }

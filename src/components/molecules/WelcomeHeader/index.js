@@ -5,7 +5,7 @@ import { Header, Title, Image } from './styles'
 
 import { getOriginalArtWork } from '../../../services/utils'
 
-const ListHeaderComponent = () => {
+const WelcomeHeader = () => {
   return (
     <Header>
       <Title>P</Title>
@@ -18,4 +18,4 @@ const ListHeaderComponent = () => {
   )
 }
 
-export default ListHeaderComponent
+export default WelcomeHeader

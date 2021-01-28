@@ -1,10 +1,18 @@
 import React from 'react'
-import { Platform } from 'react-native'
 
-import { TextInput as StyledTextInput } from './styles'
+import { TextInput as StyledTextInput, Wrapper } from './styles'
 
-const TextInput = () => {
-  return <TextInput />
+const TextInput = ({ onChangeText, value, maxLength }) => {
+  return (
+    <StyledTextInput
+      placeholder="My name is"
+      returnKeyType="done"
+      underlineColorAndroid="transparent"
+      maxLength={maxLength}
+      onChange={(e) => onChangeText(e.nativeEvent.text)}
+      value={value}
+    />
+  )
 }
 
 export default TextInput
