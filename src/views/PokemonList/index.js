@@ -1,43 +1,62 @@
 import React from 'react'
 
-import {
-  PokemonListItem,
-  ListHeaderComponent,
-  PokeLoader,
-} from '../../components'
-import { usePokemonList } from '../../services/hooks'
+import useTrainerStore from '../../services/store/TrainerStore'
+import usePokemonListStore from '../../services/store/PokemonListStore'
+import { PokemonListItem, PokeLoader } from '../../components'
 
-import { SafeArea, FlatList, ListFooterComponent } from './styles'
+import {
+  SafeArea,
+  FlatList,
+  ListFooterComponent,
+  ListHeaderComponent,
+  Title,
+} from './styles'
 
 const PokemonList = () => {
-  const { get, data, loading } = usePokemonList()
+  const { trainer } = useTrainerStore()
+  const { pokemon, loading, increaseOffset, getPokemon } = usePokemonListStore()
 
   React.useEffect(() => {
     const load = async () => {
-      await get()
+      await getPokemon()
+      increaseOffset()
     }
     load()
-  }, [])
+  }, [getPokemon, increaseOffset])
 
   const renderItem = ({ item, index }) => {
     return <PokemonListItem item={item} index={index} />
   }
 
-  const onEndReached = () => {
-    get()
-  }
-
-  const renderFooterComponent = () => (
-    <ListFooterComponent>{loading && <PokeLoader />}</ListFooterComponent>
+  const renderHeaderComponent = () => (
+    <ListHeaderComponent>
+      <Title>{`Welcome to Pokas,\ntrainer ${trainer}`}</Title>
+    </ListHeaderComponent>
   )
 
+  const renderFooterComponent = () => {
+    if (loading) {
+      return (
+        <ListFooterComponent>
+          <PokeLoader />
+        </ListFooterComponent>
+      )
+    }
+    return <ListFooterComponent />
+  }
+
+  const onEndReached = async () => {
+    await getPokemon()
+    increaseOffset()
+  }
+
   return (
-    <SafeArea edges={['top', 'left', 'right']}>
+    <SafeArea edges={['top']}>
       <FlatList
         keyExtractor={(_, i) => `poke_${i}`}
-        data={data}
+        data={pokemon}
         renderItem={renderItem}
-        ListHeaderComponent={ListHeaderComponent}
+        ListHeaderComponent={renderHeaderComponent}
         ListFooterComponent={renderFooterComponent}
         onEndReachedThreshold={0.1}
         onEndReached={onEndReached}

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { pokemonTypeColors } from '../../../services/utils'
 
-import { Wrapper, HalfWrapper, TypeName, Row } from './styles'
+import { Wrapper, TypeBadge, TypeName } from './styles'
 
 const TypeBar = ({ types }) => {
   if (!types) return null
@@ -10,19 +10,21 @@ const TypeBar = ({ types }) => {
   if (types[0]) {
     if (types[1]) {
       return (
-        <Row>
-          <HalfWrapper color={pokemonTypeColors[types[0].type.name]}>
+        <Wrapper>
+          <TypeBadge color={pokemonTypeColors[types[0].type.name]}>
             <TypeName>{types[0].type.name}</TypeName>
-          </HalfWrapper>
-          <HalfWrapper color={pokemonTypeColors[types[1].type.name]}>
+          </TypeBadge>
+          <TypeBadge color={pokemonTypeColors[types[1].type.name]}>
             <TypeName>{types[1].type.name}</TypeName>
-          </HalfWrapper>
-        </Row>
+          </TypeBadge>
+        </Wrapper>
       )
     }
     return (
-      <Wrapper color={pokemonTypeColors[types[0].type.name]}>
-        <TypeName>{types[0].type.name}</TypeName>
+      <Wrapper>
+        <TypeBadge color={pokemonTypeColors[types[0].type.name]}>
+          <TypeName>{types[0].type.name}</TypeName>
+        </TypeBadge>
       </Wrapper>
     )
   }

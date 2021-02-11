@@ -13,10 +13,14 @@ const BodyData = ({ weight, height }) => {
   return (
     <Wrapper>
       {weight && (
-        <RetroText>{`Weight: ${hectogramsToKilograms(weight)}kg`}</RetroText>
+        <RetroText>{`Weight: ${
+          weight ? hectogramsToKilograms(weight) : '-'
+        }kg`}</RetroText>
       )}
       {height && (
-        <RetroText>{`Height: ${decimetersToMeters(height)}m`}</RetroText>
+        <RetroText>{`Height: ${
+          height ? decimetersToMeters(height) : ''
+        }m`}</RetroText>
       )}
     </Wrapper>
   )

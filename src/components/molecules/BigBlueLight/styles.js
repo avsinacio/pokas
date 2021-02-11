@@ -5,7 +5,7 @@ export const Border = styled.View`
   height: 100px;
   border-radius: 50px;
   background-color: #dddcde;
-  border: 1px solid #212121;
+  border: 3px solid #212121;
   justify-content: center;
   align-items: center;
 `
@@ -15,7 +15,7 @@ export const Light = styled.View`
   height: 85px;
   border-radius: 50px;
   background-color: #3498cd;
-  border: 1px solid #212121;
+  border: 3px solid #212121;
 `
 
 export const Reflex = styled.View`

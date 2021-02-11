@@ -2,8 +2,6 @@ import React from 'react'
 
 import { Navigation } from '../navigation'
 
-const App = () => {
-  return <Navigation />
-}
+const App = () => <Navigation />
 
 export default App

@@ -1,58 +1,52 @@
 import React from 'react'
 
-import { usePokemonDetails } from '../../services/hooks'
-import { getOriginalArtWork } from '../../services/utils'
+import usePokemonStore from '../../services/store/PokemonStore'
 import {
   TypeBar,
   StatsCard,
   PokedexHeader,
-  LittleColoredLights,
-  SoundOutputSymbol,
   BodyData,
+  PokedexScreen,
+  PokeLoader,
 } from '../../components'
 
 import {
   SafeArea,
-  Image,
   ScrollView,
-  ImageBackground,
-  ImageBackgroundDetails,
-  ImageBackgroundDetailsBottom,
   Title,
   TitleWrapper,
+  ReturnButton,
+  LoadingWrapper,
 } from './styles'
 
-const PokemonDetails = ({ route }) => {
+const PokemonDetails = ({ route, navigation }) => {
   const { id: pokemonId, name: pokemonName } = route?.params
-
-  const { get, data } = usePokemonDetails()
+  const { getPokemonById, pokemon, loading } = usePokemonStore()
 
   React.useEffect(() => {
     const load = async () => {
-      get(pokemonId)
+      getPokemonById(pokemonId)
     }
     load()
-  }, [pokemonId])
+  }, [pokemonId, getPokemonById])
 
   return (
-    <SafeArea edges={['top', 'left', 'right']}>
+    <SafeArea edges={['top']}>
       <PokedexHeader />
-      <ImageBackgroundDetails>
-        <ImageBackground>
-          <Image source={{ uri: getOriginalArtWork(pokemonId) }} />
-        </ImageBackground>
-        <ImageBackgroundDetailsBottom>
-          <LittleColoredLights color="red" />
-          <SoundOutputSymbol />
-        </ImageBackgroundDetailsBottom>
-      </ImageBackgroundDetails>
-      <ScrollView>
-        <TypeBar types={data.types} />
+      <ReturnButton onPress={() => navigation.goBack()}>
+        <Title>{'Return'}</Title>
+      </ReturnButton>
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      >
+        <PokedexScreen pokemonId={pokemonId} />
+        <TypeBar types={pokemon.types} />
         <TitleWrapper>
           <Title>{`#${pokemonId} ${pokemonName}`}</Title>
         </TitleWrapper>
-        <StatsCard stats={data.stats} />
-        <BodyData height={data.height} weight={data.weight} />
+        <StatsCard stats={pokemon.stats} />
+        <BodyData height={pokemon.height} weight={pokemon.weight} />
       </ScrollView>
     </SafeArea>
   )

@@ -1,32 +1,27 @@
 import styled from 'styled-components/native'
 
-export const Row = styled.View`
-  flex-direction: row;
-  width: 100%;
-`
-
 export const Wrapper = styled.View`
   flex-direction: row;
-  height: 80px;
-  align-items: center;
-  justify-content: space-around;
-  background-color: ${({ color }) => color};
   width: 100%;
-  border: 2px solid #212121;
+  padding-top: 20px;
+  justify-content: space-around;
 `
 
-export const HalfWrapper = styled.View`
-  flex-direction: row;
-  height: 80px;
+export const TypeBadge = styled.View`
+  background-color: ${({ color }) => color};
+  flex-basis: 40%;
   justify-content: center;
   align-items: center;
-  background-color: ${({ color }) => color};
-  width: 50%;
-  border: 2px solid #212121;
+  padding-vertical: 20px;
+  border: 3px solid #212121;
+  border-radius: 3px;
 `
 
 export const TypeName = styled.Text`
   font-family: 'PressStart2P-Regular';
   text-transform: uppercase;
   color: #ffffff;
+  text-shadow-color: rgba(0, 0, 0, 0.75);
+  text-shadow-radius: 5px;
+  text-shadow: 3px 3px;
 `

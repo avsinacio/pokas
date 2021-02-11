@@ -7,7 +7,11 @@ import { routes } from './routes'
 const RootStack = createStackNavigator()
 
 export const Routes = () => (
-  <RootStack.Navigator initialRouteName="PokemonList" headerMode="none">
+  <RootStack.Navigator
+    initialRouteName="Welcome"
+    headerMode="none"
+    screenOptions={{ gestureEnabled: false }}
+  >
     {routes.map((route, i) => (
       <RootStack.Screen
         key={`route_${i}`}
