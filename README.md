@@ -1,8 +1,8 @@
 # POKAS
 
-### Instruções básicas
+### Basic instructions
 
-Instalação comum à qualquer projeto RN versão 60+
+Requires React-Native version >=60
 
 ```bash
 
