@@ -2,7 +2,7 @@
 
 ### Basic instructions
 
-Requires React-Native version >=60
+Requires React-Native version 60 or superior
 
 ```bash
 
